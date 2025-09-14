@@ -42,3 +42,22 @@ document.addEventListener("DOMContentLoaded", () => {
         descSpan.style.textDecoration = "line-through";
         descSpan.style.color = "gray";
       }
+const prioritySpan = document.createElement("span");
+      prioritySpan.textContent = ` [${task.priority} priority]`;
+      prioritySpan.style.color = getPriorityColor(task.priority);
+
+      const dateSpan = document.createElement("span");
+      dateSpan.textContent = ` (Due: ${task.dueDate})`;
+      dateSpan.style.color = "black";
+
+      // Edit button
+      const editBtn = document.createElement("button");
+      editBtn.textContent = "Edit";
+      editBtn.style.marginLeft = "10px";
+      editBtn.addEventListener("click", () => {
+        document.querySelector("#new-task-description").value = task.description;
+        document.querySelector("#priority").value = task.priority;
+        document.querySelector("#due-date").value = task.dueDate;
+        tasks.splice(index, 1);
+        renderTasks();
+      });
