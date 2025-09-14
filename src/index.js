@@ -61,3 +61,25 @@ const prioritySpan = document.createElement("span");
         tasks.splice(index, 1);
         renderTasks();
       });
+
+      // Delete button
+      const deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "Delete";
+      deleteBtn.style.marginLeft = "5px";
+      deleteBtn.addEventListener("click", () => {
+        tasks.splice(index, 1);
+        renderTasks();
+      });
+
+      li.appendChild(checkbox);
+      li.appendChild(descSpan);
+      li.appendChild(prioritySpan);
+      li.appendChild(dateSpan);
+      li.appendChild(editBtn);
+      li.appendChild(deleteBtn);
+
+      taskList.appendChild(li);
+    });
+  }
+
+  
