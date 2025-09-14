@@ -81,5 +81,39 @@ const prioritySpan = document.createElement("span");
       taskList.appendChild(li);
     });
   }
+// Add task
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const description = document.querySelector("#new-task-description").value.trim();
+    const priority = document.querySelector("#priority").value;
+    const dueDate = document.querySelector("#due-date").value;
 
+    if (!description || !dueDate) return;
+
+    tasks.push({ description, priority, dueDate, completed: false });
+    renderTasks();
+    form.reset();
+  });
+
+  // Sorting buttons
+  sortPriorityAscBtn.addEventListener("click", () => {
+    tasks.sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
+    renderTasks();
+  });
+
+  sortPriorityDescBtn.addEventListener("click", () => {
+    tasks.sort((a, b) => priorityOrder[b.priority] - priorityOrder[a.priority]);
+    renderTasks();
+  });
+
+  sortDateAscBtn.addEventListener("click", () => {
+    tasks.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
+    renderTasks();
+  });
+
+  sortDateDescBtn.addEventListener("click", () => {
+    tasks.sort((a, b) => new Date(b.dueDate) - new Date(a.dueDate));
+    renderTasks();
+  });
+});
   
