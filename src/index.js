@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         descSpan.style.textDecoration = "line-through";
         descSpan.style.color = "gray";
       }
-const prioritySpan = document.createElement("span");
+      const prioritySpan = document.createElement("span");
       prioritySpan.textContent = ` [${task.priority} priority]`;
       prioritySpan.style.color = getPriorityColor(task.priority);
 
@@ -81,7 +81,7 @@ const prioritySpan = document.createElement("span");
       taskList.appendChild(li);
     });
   }
-// Add task
+  // Add task
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const description = document.querySelector("#new-task-description").value.trim();
@@ -116,4 +116,3 @@ const prioritySpan = document.createElement("span");
     renderTasks();
   });
 });
-  
