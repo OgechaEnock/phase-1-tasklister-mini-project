@@ -18,3 +18,18 @@ document.addEventListener("DOMContentLoaded", () => {
       default: return "green";
     }
   }
+
+  // Render all tasks
+  function renderTasks() {
+    taskList.innerHTML = "";
+    tasks.forEach((task, index) => {
+      const li = document.createElement("li");
+
+      // Checkbox section
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.checked = task.completed;
+      checkbox.addEventListener("change", () => {
+        task.completed = checkbox.checked;
+        renderTasks();
+      });
