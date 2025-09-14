@@ -33,3 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
         task.completed = checkbox.checked;
         renderTasks();
       });
+      const descSpan = document.createElement("span");
+      descSpan.textContent = task.description;
+      descSpan.style.fontWeight = "bold";
+      descSpan.style.color = getPriorityColor(task.priority);
+
+      if (task.completed) {
+        descSpan.style.textDecoration = "line-through";
+        descSpan.style.color = "gray";
+      }
